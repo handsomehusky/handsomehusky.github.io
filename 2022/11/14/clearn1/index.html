@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>标题：C语言学习1 - 哈士奇的快乐屋</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="哈士奇的快乐屋"><meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/handsomehusky/image/main/bigdog.jpg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="哈士奇的快乐屋"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="概要 vs概念：   项目(project) 项（main.c） 函数(main)       stdio.h 原英文意义：standard input output  快捷键：    F5  运行 F10  调试 ctrl+滚轮 缩放   使用控制台展示运行结果"><meta property="og:type" content="blog"><meta property="og:title" content="标题：C语言学习1"><meta property="og:url" content="http://handsomehusky.github.io/2022/11/14/clearn1/"><meta property="og:site_name" content="哈士奇的快乐屋"><meta property="og:description" content="概要 vs概念：   项目(project) 项（main.c） 函数(main)       stdio.h 原英文意义：standard input output  快捷键：    F5  运行 F10  调试 ctrl+滚轮 缩放   使用控制台展示运行结果"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/14/clearn1/1.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/14/clearn1/2.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/14/clearn1/3.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/14/clearn1/4.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/14/clearn1/5.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/14/clearn1/6.png"><meta property="article:published_time" content="2022-11-14T08:03:07.000Z"><meta property="article:modified_time" content="2022-11-14T13:55:17.999Z"><meta property="article:author" content="一只特立独行的帅狗"><meta property="article:tag" content="C语言学习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://handsomehusky.github.io/2022/11/14/clearn1/1.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://handsomehusky.github.io/2022/11/14/clearn1/"},"headline":"标题：C语言学习1","image":["http://handsomehusky.github.io/2022/11/14/clearn1/1.png","http://handsomehusky.github.io/2022/11/14/clearn1/2.png","http://handsomehusky.github.io/2022/11/14/clearn1/3.png","http://handsomehusky.github.io/2022/11/14/clearn1/4.png","http://handsomehusky.github.io/2022/11/14/clearn1/5.png","http://handsomehusky.github.io/2022/11/14/clearn1/6.png"],"datePublished":"2022-11-14T08:03:07.000Z","dateModified":"2022-11-14T13:55:17.999Z","author":{"@type":"Person","name":"一只特立独行的帅狗"},"publisher":{"@type":"Organization","name":"哈士奇的快乐屋","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/handsomehusky/image/main/logo2.JPG"}},"description":"概要 vs概念：   项目(project) 项（main.c） 函数(main)       stdio.h 原英文意义：standard input output  快捷键：    F5  运行 F10  调试 ctrl+滚轮 缩放   使用控制台展示运行结果"}</script><link rel="canonical" href="http://handsomehusky.github.io/2022/11/14/clearn1/"><link rel="icon" href="https://raw.githubusercontent.com/handsomehusky/image/main/bigdog.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://raw.githubusercontent.com/handsomehusky/image/main/logo2.JPG" alt="哈士奇的快乐屋" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">记录</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于和留言</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-14T08:03:07.000Z" title="2022/11/14 16:03:07">2022-11-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-14T13:55:17.999Z" title="2022/11/14 21:55:17">2022-11-14</time></span><span class="level-item">3 minutes read (About 428 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">标题：C语言学习1</h1><div class="content"><h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><ol>
+<li>vs概念：</li>
+</ol>
+<ul>
+<li>项目(project)<ul>
+<li>项（main.c）<ul>
+<li>函数(main)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p>stdio.h 原英文意义：standard input output</p>
+</li>
+<li><p>快捷键：</p>
+</li>
+</ol>
+<ul>
+<li>F5  运行</li>
+<li>F10  调试</li>
+<li>ctrl+滚轮 缩放</li>
+</ul>
+<ol start="4">
+<li><p>使用控制台展示运行结果</p>
+<p><img src="/2022/11/14/clearn1/1.png"></p>
+<p><img src="/2022/11/14/clearn1/2.png"></p>
+<span id="more"></span></li>
+</ol>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><ol>
+<li>各种字符类型对应存储空间（字节）</li>
+</ol>
+<p>​	char:	1</p>
+<p>​	short:	2</p>
+<p>​	int:	4</p>
+<p>​	long:	4</p>
+<p>​	long long:	8</p>
+<p>​	float:	4</p>
+<p>​	double:	8</p>
+<ol start="2">
+<li><p>局部变量和全局变量名字相同时，局部变量优先</p>
+</li>
+<li><p>C语言变量申明不可中途插入，只能在代码块的最头上（不过2022vs貌似可以运行）</p>
+</li>
+<li><p>局部变量作用域：局部变量申明所在代码块内</p>
+</li>
+<li><p>当想使用另外源文件定义的全局变量时，需要在当前源文件内申明extern  变量名称，然后就可以使用这个变量</p>
+<p><img src="/2022/11/14/clearn1/3.png"></p>
+</li>
+<li><p><img src="/2022/11/14/clearn1/4.png"></p>
+<p>括号内的变量分别对应的数字依次是0、1、2······</p>
+</li>
+<li><p>字符串</p>
+<p>char arr1[ ] &#x3D; “abc”;  &#x2F;&#x2F;字符串放进字符数组</p>
+<p>char arr2[ ] &#x3D; {‘a’ , ‘b’ , ‘c’ };  &#x2F;&#x2F;放了3个字符</p>
+<p>但输出时因为arr2末尾没有0，还输出其他怪怪的东西</p>
+<p>ASCII 表 </p>
+<p><img src="/2022/11/14/clearn1/5.png"></p>
+<p>函数***strlen()***计算字符串长度，且转义字符算一个字符</p>
+<p><img src="/2022/11/14/clearn1/6.png"></p>
+<p>\ddd 表示八进制ddd转化成十进制后对应的ASCII码表内的符号</p>
+<p>\xdd  表示十六进制dd转化成十进制后对应的ASCII码表内的符号</p>
+</li>
+<li><p>位运算</p>
+<p>&amp;按位与</p>
+<p>|按位或</p>
+<p>^ 异或（相异为1）</p>
+</li>
+<li><p>sizeof ()  计算变量&#x2F;类型所占空间大小，单位字节</p>
+</li>
+</ol>
+<p>​		计算数组总站大小  </p>
+<p>​		int arr [10]&#x3D;{0}	</p>
+<p>​        sizeof (arr) &#x3D;&#x3D;&#x3D;&#x3D;10*4</p>
+<p>​		反向计算数组元数个数</p>
+<p>​		总大小&#x2F;该类型每个所占内存</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>标题：C语言学习1</p><p><a href="http://handsomehusky.github.io/2022/11/14/clearn1/">http://handsomehusky.github.io/2022/11/14/clearn1/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>一只特立独行的帅狗</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-11-14</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-11-14</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="微信" href="https://raw.githubusercontent.com/handsomehusky/image/main/wechat.jpg"><i class="icon fab fa-weixin"></i></a><a class="icons" rel="noopener" target="_blank" title="QQ-3365538768" href="https://raw.githubusercontent.com/handsomehusky/image/main/QQ.jpg"><i class="icon fab fa-qq"></i></a><a class="icons" rel="noopener" target="_blank" title="My GitHub" href="https://github.com/handsomehusky"><i class="icon fab fa-github"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">C语言学习</a></div><div class="sharethis-inline-share-buttons"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-634a7cc177e81dee" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/gallery/alipay.jpg" alt="Alipay"></span></a><a class="button donate" href="https://raw.githubusercontent.com/handsomehusky/image/main/buy.png" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/gallery/wechat.jpg" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/11/20/clearn2/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">标题：C语言学习2</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/11/14/c-learn/"><span class="level-item">标题：vscode2022安全提示关闭</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="content" id="valine-thread"></div><script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.16/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread',
+            appId: "ErFkt8kxGOe19wuMMK1wCDSk-gzGzoHsz",
+            appKey: "oJ6VIf8LQE9gKcBWjKNS7d7D",
+            placeholder: "输入你的评论\n昵称为必填项目\n",
+            avatar: "mm",
+            avatarForce: false,
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "en",
+            visitor: true,
+            highlight: true,
+            recordIP: false,
+            
+            
+            
+            enableQQ: false,
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://raw.githubusercontent.com/handsomehusky/image/main/bigdog.jpg" alt="一只特立独行的帅狗"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">一只特立独行的帅狗</p><p class="is-size-6 is-block">每一个兴趣都值得发掘</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China,Wuhan HUST</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">11</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">4</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/handsomehusky" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/handsomehusky"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="微信" href="https://raw.githubusercontent.com/handsomehusky/image/main/wechat.jpg"><i class="fab fa-weixin"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="QQ-3365538768" href="https://raw.githubusercontent.com/handsomehusky/image/main/QQ.jpg"><i class="fab fa-qq"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/430990534?spm_id_from=333.337.0.0"><i class="fab fa-github-alt"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="steam" href="https://raw.githubusercontent.com/handsomehusky/image/main/steam.png"><i class="fab fa-steam"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.meijutt.net/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">美剧</span></span><span class="level-right"><span class="level-item tag">www.meijutt.net</span></span></a></li><li><a class="level is-mobile" href="http://www.erji.net/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">耳机论坛</span></span><span class="level-right"><span class="level-item tag">www.erji.net</span></span></a></li><li><a class="level is-mobile" href="https://www.zhelper.net/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Z-library电子书</span></span><span class="level-right"><span class="level-item tag">www.zhelper.net</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-11-21T07:06:18.000Z">2022-11-21</time></p><p class="title"><a href="/2022/11/21/clearn4/">标题：C语言学习4</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-11-20T02:21:54.000Z">2022-11-20</time></p><p class="title"><a href="/2022/11/20/clearn3/">标题：C语言学习3</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-11-20T01:13:46.000Z">2022-11-20</time></p><p class="title"><a href="/2022/11/20/clearn2/">标题：C语言学习2</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-11-14T08:03:07.000Z">2022-11-14</time></p><p class="title"><a href="/2022/11/14/clearn1/">标题：C语言学习1</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-11-14T06:38:01.000Z">2022-11-14</time></p><p class="title"><a href="/2022/11/14/c-learn/">标题：vscode2022安全提示关闭</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"><span class="tag">C语言学习</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/"><span class="tag">小游戏</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92/"><span class="tag">游戏策划</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BB%8F%E9%AA%8C/"><span class="tag">经验</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://raw.githubusercontent.com/handsomehusky/image/main/logo2.JPG" alt="哈士奇的快乐屋" height="28"></a><p class="is-size-7"><span>&copy; 2022 一只特立独行的帅狗</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="微信" href="https://raw.githubusercontent.com/handsomehusky/image/main/wechat.jpg"><i class="fab fa-weixin"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="QQ-3365538768" href="https://raw.githubusercontent.com/handsomehusky/image/main/QQ.jpg"><i class="fab fa-qq"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="My GitHub" href="https://github.com/handsomehusky"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: null,
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false}});</script></body></html>

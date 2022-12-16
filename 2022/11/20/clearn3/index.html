@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>《C语言学习3》 - 哈士奇的快乐屋</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="哈士奇的快乐屋"><meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/handsomehusky/image/main/bigdog.jpg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="哈士奇的快乐屋"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="-"><meta property="og:type" content="blog"><meta property="og:title" content="《C语言学习3》"><meta property="og:url" content="http://handsomehusky.github.io/2022/11/20/clearn3/"><meta property="og:site_name" content="哈士奇的快乐屋"><meta property="og:description" content="-"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/20/clearn3/1.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/20/clearn3/2.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/20/clearn3/3.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/20/clearn3/4.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/20/clearn3/5.png"><meta property="og:image" content="http://handsomehusky.github.io/2022/11/20/clearn3/6.png"><meta property="article:published_time" content="2022-11-20T02:21:54.000Z"><meta property="article:modified_time" content="2022-12-16T09:31:29.817Z"><meta property="article:author" content="一只特立独行的帅狗"><meta property="article:tag" content="C语言学习"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://handsomehusky.github.io/2022/11/20/clearn3/1.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://handsomehusky.github.io/2022/11/20/clearn3/"},"headline":"《C语言学习3》","image":["http://handsomehusky.github.io/2022/11/20/clearn3/1.png","http://handsomehusky.github.io/2022/11/20/clearn3/2.png","http://handsomehusky.github.io/2022/11/20/clearn3/3.png","http://handsomehusky.github.io/2022/11/20/clearn3/4.png","http://handsomehusky.github.io/2022/11/20/clearn3/5.png","http://handsomehusky.github.io/2022/11/20/clearn3/6.png"],"datePublished":"2022-11-20T02:21:54.000Z","dateModified":"2022-12-16T09:31:29.817Z","author":{"@type":"Person","name":"一只特立独行的帅狗"},"publisher":{"@type":"Organization","name":"哈士奇的快乐屋","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/handsomehusky/image/main/logo2.JPG"}},"description":"-"}</script><link rel="canonical" href="http://handsomehusky.github.io/2022/11/20/clearn3/"><link rel="icon" href="https://raw.githubusercontent.com/handsomehusky/image/main/bigdog.jpg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://raw.githubusercontent.com/handsomehusky/image/main/logo2.JPG" alt="哈士奇的快乐屋" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">记录</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于和留言</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-20T02:21:54.000Z" title="2022/11/20 10:21:54">2022-11-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-16T09:31:29.817Z" title="2022/12/16 17:31:29">2022-12-16</time></span><span class="level-item">6 minutes read (About 958 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">《C语言学习3》</h1><div class="content"><p>-<span id="more"></span></p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h3 id="浮点运算的精度"><a href="#浮点运算的精度" class="headerlink" title="浮点运算的精度"></a>浮点运算的精度</h3><p>float有效精度7位</p>
+<p>表示浮点数  1.345f</p>
+<p>判定浮点数相同 </p>
+<p>​	<code>fabs(f1-f2)&lt;1e-12</code></p>
+<p>浮点数内部表达</p>
+<p><img src="/2022/11/20/clearn3/1.png"></p>
+<!--more-->
+
+<p>没特殊需要，都用double</p>
+<h3 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h3><p><img src="/2022/11/20/clearn3/2.png"></p>
+<p>float %f    %f&#x2F;%e</p>
+<p>double %lf  %f</p>
+<p>科学计数法表示</p>
+<p>±5.67e±16</p>
+<p>浮点数可以精准表示的是离散的数</p>
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><p>（int）a不是改变a，而是进行一次运算</p>
+<h3 id="对于sizeof"><a href="#对于sizeof" class="headerlink" title="对于sizeof"></a>对于sizeof</h3><p>sizeof (a++)</p>
+<p>​	是静态的，只是判定a++（括号内内容）是什么类型，并不会实际让a加</p>
+<h3 id="逃逸字符"><a href="#逃逸字符" class="headerlink" title="逃逸字符"></a>逃逸字符</h3><p>\b  回到上一个位置，但不一定删除</p>
+<p>\t    到达下一个制表位</p>
+<h3 id="bool"><a href="#bool" class="headerlink" title="bool"></a>bool</h3><p> #include&lt;stdbool.h&gt;</p>
+<p>之后就可以用bool和true和false</p>
+<p>本质上bool还是整数，printf还是%d</p>
+<h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><p> 优先级</p>
+<p>! &gt; &amp;&amp; &gt; ||</p>
+<p><img src="/2022/11/20/clearn3/3.png"></p>
+<p>注意短路</p>
+<h3 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count=(count &gt; <span class="number">20</span>)?count<span class="number">-10</span>:count+<span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<p>优先级大于赋值，小于其他一切</p>
+<h3 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h3><p>优先级比赋值还低，最最最低</p>
+<p>连接两个表达式，用右边的表达式作为结果</p>
+<h3 id="二进制负数-补码"><a href="#二进制负数-补码" class="headerlink" title="二进制负数-补码"></a>二进制负数-补码</h3><p>00000001+11111111&#x3D;100000000-》00000000（多的一位会被舍掉）</p>
+<p>对于-a 补码就是0-a  实际是2^n - a</p>
+<p>补码+原码&#x3D;溢出一个零的零</p>
+<p>1 1111111~1 0000000 - &gt; -1 ~ -128</p>
+<p>0 0000001~ 0 1111111 -&gt;1~127</p>
+<h5 id="引入unsigned"><a href="#引入unsigned" class="headerlink" title="引入unsigned"></a>引入unsigned</h5><p> unsigned char c&#x3D;255;</p>
+<p>printf &#x3D; 255</p>
+<p>char c&#x3D;255;</p>
+<p>printf &#x3D; -1</p>
+<p><img src="/2022/11/20/clearn3/4.png"></p>
+<h3 id="整数的输出"><a href="#整数的输出" class="headerlink" title="整数的输出"></a>整数的输出</h3><p><img src="/2022/11/20/clearn3/5.png"></p>
+<p>%d %u %ld %lu</p>
+<h3 id="8进制和16进制"><a href="#8进制和16进制" class="headerlink" title="8进制和16进制"></a>8进制和16进制</h3><p>0开头为8进制  输出%o</p>
+<p>0x为16进制  输出%x %X （大写则输出字母为大写）</p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h3 id="本地变量"><a href="#本地变量" class="headerlink" title="本地变量"></a>本地变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i=<span class="number">10</span>; <span class="comment">//i生存期作用域只在这个括号内</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>函数传递的只是值，并且函数内定义的变量，出去后便会无效</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h3 id="数组定义"><a href="#数组定义" class="headerlink" title="数组定义"></a>数组定义</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a[]=&#123;<span class="number">0</span>&#125;; <span class="comment">//让程序自己判断有几个</span></span><br><span class="line">a[<span class="number">4</span>]=&#123;<span class="number">1</span>&#125;; <span class="comment">//a[0]=1 之后的自动为0</span></span><br><span class="line">a[<span class="number">10</span>]=&#123;[<span class="number">0</span>]=<span class="number">2</span>,[<span class="number">2</span>]=<span class="number">3</span>,<span class="number">6</span>&#125; <span class="comment">//a[0]=2 a[2]=3 a[3]=6 其余为0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组大小"><a href="#数组大小" class="headerlink" title="数组大小"></a>数组大小</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[]=&#123;<span class="number">1</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>&#125;;</span><br><span class="line">number=<span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(a[<span class="number">0</span>]); <span class="comment">//求数组个数只需要让总占内存/第一个占的内存大小</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="作为函数参数"><a href="#作为函数参数" class="headerlink" title="作为函数参数"></a>作为函数参数</h3><p>数组作为函数参数时：</p>
+<p>​	不能在[]中给出数组大小</p>
+<p>​	不能再用sizeof来计算数组个数</p>
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">3</span>][<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+<p>a是三行五列的矩阵</p>
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;a;i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;b;j++)&#123;</span><br><span class="line">        a[i][j]=i*j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><ul>
+<li><p>输出地址用%p</p>
+</li>
+<li><p>&amp;  只能对变量取地址</p>
+</li>
+<li><pre><code class="c">int* p,q //*p（p指针所代表地址上的变量）和q是 int型变量
+int*p    //p为指针类型（int*）
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">- `*`是单目运算，来访问指针的值所代表地址上的变量</span><br><span class="line"></span><br><span class="line">- 在函数中访问指针指着的变量，可以跳出函数改变</span><br><span class="line"></span><br><span class="line">### 指针的应用</span><br><span class="line"></span><br><span class="line">- 函数有多个输出，通过指针输出</span><br><span class="line"></span><br><span class="line">- 返回函数状态</span><br><span class="line"></span><br><span class="line">  return 返回状态</span><br><span class="line"></span><br><span class="line">  指针 返回值</span><br><span class="line"></span><br><span class="line">### 数组与指针</span><br><span class="line"></span><br><span class="line">- 函数参数里的数组，实际上是调用了数组的指针</span><br><span class="line"></span><br><span class="line">  ```c</span><br><span class="line">  sizeof(a)=sizeof(int*)</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>数组变量本身(a)表达地址，无需用&amp;取地址，但数组单元(a[x])表达的是变量，需要用&amp;取地址</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>*p=a;</span><br><span class="line">a==&amp;a[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>[]可以对数组做，也可以对指针做</p>
+<p>对指针p   p[0]&#x3D;*p</p>
+<p>*可以对指针做，也可以对数组做</p>
+<p>对数组a    *a&#x3D;a[0]</p>
+<p>数组变量是常量指针，因此数组间不能互相赋值</p>
+</li>
+</ul>
+<h3 id="指针是const"><a href="#指针是const" class="headerlink" title="指针是const"></a>指针是const</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* <span class="type">const</span> q=&amp;i</span><br></pre></td></tr></table></figure>
+
+<p>指针指向的变量地址不能变</p>
+<p>但可以 改变指向变量大小</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*p=<span class="number">26</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="所指是cosnt"><a href="#所指是cosnt" class="headerlink" title="所指是cosnt"></a>所指是cosnt</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> *p=&amp;i;</span><br><span class="line">*p=<span class="number">26</span> <span class="comment">//ERROR!</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/20/clearn3/6.png"></p>
+<p>const在*后就是指针const</p>
+<p>在*前是 指向变量const</p>
+<h3 id="const数组"><a href="#const数组" class="headerlink" title="const数组"></a>const数组</h3><ul>
+<li><p>const int a[]&#x3D;{1,2,3,4,5,6,};   数组内变量不可改变</p>
+</li>
+<li><p>因此，为了保护数组不被函数破坏，可以设置 const int a[]</p>
+</li>
+</ul>
+<h3 id="指针加法"><a href="#指针加法" class="headerlink" title="指针加法"></a>指针加法</h3><p>char *p&#x3D;ac</p>
+<p>p+1 意思是下一个变量的头所在指针地址</p>
+<p>对</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>《C语言学习3》</p><p><a href="http://handsomehusky.github.io/2022/11/20/clearn3/">http://handsomehusky.github.io/2022/11/20/clearn3/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>一只特立独行的帅狗</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-11-20</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-12-16</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="微信" href="https://raw.githubusercontent.com/handsomehusky/image/main/wechat.jpg"><i class="icon fab fa-weixin"></i></a><a class="icons" rel="noopener" target="_blank" title="QQ-3365538768" href="https://raw.githubusercontent.com/handsomehusky/image/main/QQ.jpg"><i class="icon fab fa-qq"></i></a><a class="icons" rel="noopener" target="_blank" title="My GitHub" href="https://github.com/handsomehusky"><i class="icon fab fa-github"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">C语言学习</a></div><div class="sharethis-inline-share-buttons"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-634a7cc177e81dee" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/gallery/alipay.jpg" alt="Alipay"></span></a><a class="button donate" href="https://raw.githubusercontent.com/handsomehusky/image/main/buy.png" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/gallery/wechat.jpg" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/11/21/clearn4/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">《C语言学习4》</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/11/20/clearn2/"><span class="level-item">《C语言学习2》</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="content" id="valine-thread"></div><script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.16/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread',
+            appId: "ErFkt8kxGOe19wuMMK1wCDSk-gzGzoHsz",
+            appKey: "oJ6VIf8LQE9gKcBWjKNS7d7D",
+            placeholder: "输入你的评论\n昵称为必填项目\n",
+            avatar: "mm",
+            avatarForce: false,
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "en",
+            visitor: true,
+            highlight: true,
+            recordIP: false,
+            
+            
+            
+            enableQQ: false,
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="https://raw.githubusercontent.com/handsomehusky/image/main/bigdog.jpg" alt="一只特立独行的帅狗"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">一只特立独行的帅狗</p><p class="is-size-6 is-block">每一个兴趣都值得发掘</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China,Wuhan HUST</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">5</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/handsomehusky" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/handsomehusky"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="微信" href="https://raw.githubusercontent.com/handsomehusky/image/main/wechat.jpg"><i class="fab fa-weixin"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="QQ-3365538768" href="https://raw.githubusercontent.com/handsomehusky/image/main/QQ.jpg"><i class="fab fa-qq"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/430990534?spm_id_from=333.337.0.0"><i class="fab fa-github-alt"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="steam" href="https://raw.githubusercontent.com/handsomehusky/image/main/steam.png"><i class="fab fa-steam"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.meijutt.net/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">美剧</span></span><span class="level-right"><span class="level-item tag">www.meijutt.net</span></span></a></li><li><a class="level is-mobile" href="http://www.erji.net/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">耳机论坛</span></span><span class="level-right"><span class="level-item tag">www.erji.net</span></span></a></li><li><a class="level is-mobile" href="https://www.zhelper.net/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Z-library电子书</span></span><span class="level-right"><span class="level-item tag">www.zhelper.net</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-12-17T01:59:49.000Z">2022-12-17</time></p><p class="title"><a href="/2022/12/17/chatgpt/">如何注册chatGPT</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-12-16T12:47:14.000Z">2022-12-16</time></p><p class="title"><a href="/2022/12/16/picsolution/">《关于在typora中黏贴图片并用hexo传到github上无法显示图片的解决方法》</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-12-16T09:33:18.000Z">2022-12-16</time></p><p class="title"><a href="/2022/12/16/blog2new/">《关于hexo图片无法显示的一种解决方法》</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-12-16T09:10:32.000Z">2022-12-16</time></p><p class="title"><a href="/2022/12/16/ctask1/">《第六次上机作业》</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-12-16T06:08:50.000Z">2022-12-16</time></p><p class="title"><a href="/2022/12/16/ladder/">《如何通过订阅飞机场实现翻墙并注册chatGPT》</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">December 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"><span class="tag">C语言学习</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E6%9C%AF/"><span class="tag">技术</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92/"><span class="tag">游戏策划</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%87%AA%E5%88%B6%E6%B8%B8%E6%88%8F/"><span class="tag">自制游戏</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BE%E5%86%85%E4%BD%9C%E4%B8%9A/"><span class="tag">课内作业</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://raw.githubusercontent.com/handsomehusky/image/main/logo2.JPG" alt="哈士奇的快乐屋" height="28"></a><p class="is-size-7"><span>&copy; 2022 一只特立独行的帅狗</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="微信" href="https://raw.githubusercontent.com/handsomehusky/image/main/wechat.jpg"><i class="fab fa-weixin"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="QQ-3365538768" href="https://raw.githubusercontent.com/handsomehusky/image/main/QQ.jpg"><i class="fab fa-qq"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="My GitHub" href="https://github.com/handsomehusky"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: null,
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false}});</script></body></html>
